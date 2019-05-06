@@ -1,12 +1,12 @@
 package io.sparsh.springbootstarter.topic;
 
-public class topic {
+public class Topic {
     private String id ;
     private String name ;
     private String description ;
-    public topic (){};
+    public Topic(){};
 
-    public topic(String id, String name, String description) {
+    public Topic(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
