@@ -33,4 +33,15 @@ public class TopicService {
     {
         listOfTopics.add(topic);
     }
+
+    public void updateTopic(Topic topic,String id)
+    {
+        for (int i =0;i<listOfTopics.size();i++) {
+
+            if (listOfTopics.get(i).getId().equalsIgnoreCase(id)) {
+                // it will update the topic at location i
+                listOfTopics.set(i, topic);
+            }
+        }
+    }
 }
