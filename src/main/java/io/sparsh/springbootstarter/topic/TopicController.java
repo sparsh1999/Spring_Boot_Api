@@ -1,9 +1,7 @@
 package io.sparsh.springbootstarter.topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,11 +28,22 @@ public class TopicController {
         return topicService.getTopic(id);
     }
 
-    // this is also same as above but it uses other variable "foo" different from "id"
+     // this is also same as above but it uses other variable "foo" different from "id"
 
-//    @RequestMapping("topics/{foo}")
-//    public Topic getTopicByID(@PathVariable("foo") String id )
-//    {
-//        return topicService.getTopic(id);
-//    }
+    //    @RequestMapping("topics/{foo}")
+    //    public Topic getTopicByID(@PathVariable("foo") String id )
+    //    {
+    //        return topicService.getTopic(id);
+    //    }
+
+    //method defines which method is called and value is url mapping
+    // @ReqeustBody get the request body from the post request and maps into a topic internally
+
+    @RequestMapping(method = RequestMethod.POST,value = "/topics")
+    public void addTopic(@RequestBody Topic topic)
+    {
+        topicService.addTopic(topic);
+    }
+
+
 }

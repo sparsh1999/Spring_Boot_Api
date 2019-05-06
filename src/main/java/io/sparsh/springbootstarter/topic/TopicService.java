@@ -2,14 +2,18 @@ package io.sparsh.springbootstarter.topic;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class TopicService {
 
-    private List<Topic> listOfTopics = Arrays.asList(new Topic("1","sparsh","goodBoy"),
-            new Topic("2","utkarsh","badBoy"));
+    // here we added new arraylist as
+    // arrays.asList gives a mutable object which values can't be modified
+    // by doing this we can have a non - mutable object.
+    private List<Topic> listOfTopics = new ArrayList<Topic>(Arrays.asList(new Topic("1","sparsh","goodBoy"),
+            new Topic("2","utkarsh","badBoy")));
 
     public List<Topic> getALlTopics(){
         return listOfTopics;
@@ -23,5 +27,10 @@ public class TopicService {
                 return t;
         }
         return null;
+    }
+
+    public void addTopic (Topic topic)
+    {
+        listOfTopics.add(topic);
     }
 }
